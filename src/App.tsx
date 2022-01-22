@@ -36,16 +36,18 @@ const App = () => {
 
   const getTotalItems = () => null
 
-  const handleAddToCart = () => null
+  const handleAddToCart = (clickedItem: CartItemType) => null
 
   const handleRemoveFromCart = () => null
 
   if (isLoading) return <LinearProgress/>
   if (error) return <div>Something went Wrong...</div>
   return (
-    <div className="App">
-      Start
-    </div>
+    <Wrapper>
+      <Grid container spacing={3}>
+        
+      </Grid>
+    </Wrapper>
   );
 }
 
