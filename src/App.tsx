@@ -60,7 +60,22 @@ const App = () => {
     })
   }
 
-  const handleRemoveFromCart = () => null
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems(prev => (
+      //call reduce on prev state
+      // accumulator starts with an empty array that we specify as cartItemType 
+      prev.reduce((ack, item) => {
+        if (item.id === id) {
+          // if quantity equals 1, we return ack as an empty array
+          if (item.quantity === 1) return ack;
+          // other wise we subtract 1 from the quantity
+          return [...ack, {...item, quantity: item.quantity - 1}];
+        } else {
+          return [...ack, item]
+        }
+      }, [] as CartItemType[])
+    ))
+  }
 
   if (isLoading) return <LinearProgress/>
   if (error) return <div>Something went Wrong...</div>

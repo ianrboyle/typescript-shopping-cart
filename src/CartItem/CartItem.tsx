@@ -29,7 +29,7 @@ const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => (
         <p>{item.quantity}</p>
         <Button size="small" disableElevation variant="contained" onClick={() => addToCart(item)}>+</Button>
       </div>
-      <img src={item.image} alt={item.title}/>
+      <img className="cart-image" src={item.image} alt={item.title}/>
     </div>
   </Wrapper>)
 
