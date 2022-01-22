@@ -37,7 +37,8 @@ const App = () => {
   const {data, isLoading, error} = useQuery<CartItemType[]>('products', getProducts)
     console.log(data)
 
-  const getTotalItems = (items: CartItemType[]) => null
+    //ack = accumlator, starts at 0
+  const getTotalItems = (items: CartItemType[]) => items.reduce((ack: number, item) => ack + item.quantity, 0)
 
   const handleAddToCart = (clickedItem: CartItemType) => null
 
